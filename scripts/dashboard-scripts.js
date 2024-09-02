@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Manejo de pestañas
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Datos para el gráfico
     const initialData = [
         { name: 'Máquina A', consumo: 4000, costo: 2400, employee: 'employee1' },
         { name: 'Máquina B', consumo: 3000, costo: 1398, employee: 'employee2' },
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let filteredData = [...initialData];
 
-    // Crear gráfico con Chart.js
+    // Chart.js
     const ctx = document.getElementById('machineChart').getContext('2d');
     const chart = new Chart(ctx, {
         type: 'bar',
@@ -59,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Función para actualizar el gráfico
     function updateChart() {
         chart.data.labels = filteredData.map(item => item.name);
         chart.data.datasets[0].data = filteredData.map(item => item.consumo);
@@ -67,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         chart.update();
     }
 
-    // Manejo del filtro de empleados
     const employeeSelect = document.getElementById('employee-select');
     employeeSelect.addEventListener('change', function() {
         const selectedEmployee = this.value;
@@ -80,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSummaryCards();
     });
 
-    // Función para actualizar las tarjetas de resumen
     function updateSummaryCards() {
         const totalConsumo = filteredData.reduce((sum, item) => sum + item.consumo, 0);
         const totalCosto = filteredData.reduce((sum, item) => sum + item.costo, 0);
@@ -91,6 +86,5 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.card:nth-child(3) .text-2xl').textContent = `${eficiencia}%`;
     }
 
-    // Inicializar las tarjetas de resumen
     updateSummaryCards();
 });

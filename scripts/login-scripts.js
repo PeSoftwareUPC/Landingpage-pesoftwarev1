@@ -10,12 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Aquí normalmente se realizaría una verificación de credenciales con el servidor
         // Por ahora, usaremos una verificación simple para demostración
         if (username === 'admin' && password === 'password') {
-            // Inicio de sesión exitoso
             loginError.textContent = '';
-            // Redirigir al dashboard
             window.location.href = '../navbar/dashboard.html';
         } else {
-            // Inicio de sesión fallido
             loginError.textContent = 'Usuario o contraseña incorrectos';
         }
     });

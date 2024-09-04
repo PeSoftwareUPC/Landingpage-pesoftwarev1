@@ -22,8 +22,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Resto de tus estilos CSS... */
-
 .flex-col {
     display: flex;
     flex-direction: column;
